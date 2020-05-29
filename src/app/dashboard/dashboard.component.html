@@ -1,0 +1,61 @@
+<div class = "project-title"> 
+    <h2><i>POLICE REPORT CLASSIFIER</i></h2>
+</div>
+<form class="form-horizontal border border-dark col-lg-6 rounded input-form">
+      <div class = "form-group row" style = "margin-top : 10px">
+        <label class = "control-label col-md-3">CASE ID :</label>
+        <input type = "text" class="col-md-8 form-control" name = "caseid" placeholder = "Enter Case ID Number" [(ngModel)] = "caseid">
+        
+      </div>
+
+      <div class = "form-group row">
+        <label class = "control-label col-md-3">Reporter Name:</label>
+        <input type = "text" class="col-md-8 form-control" name = "reportername" placeholder = "Enter Name of Reporter" [(ngModel)] = "reporter">
+        
+      </div>
+
+      <div class = "form-group">
+        <label class = "control-label col-md-3">Report Description:</label>
+        <input type = "text" class = "col-md-8 form-control" name = "description" [(ngModel)] = "case_description" >
+      </div>      
+
+      <div class = "form-group row">
+        <span class = "col-md-1"></span>
+        <button class="btn btn-primary col-md-3" (click) = "SubmitReport()">SUBMIT REPORT</button>
+        
+      </div>
+      
+      <div *ngIf = "show_alert" class = "form-group row">
+        <div class = "alert">{{alert_message}}</div>
+        <button class = "btn btn-link" (click) = "ResetDetails()">Got it</button>
+      </div>
+      
+   </form>
+   <div *ngIf = "is_predicted" class = "form-horizontal border border-dark col-lg-6 rounded result-box">
+     <div class = "form-group row">
+      <span class = "col-lg-2"> Predicted Category : </span>
+      <span class = "col-lg-4"> {{crime_predicted}} </span>
+
+     </div>
+
+    <div class = "form-group row">
+      <span class = "col-lg-2"> Accuracy : </span>
+      <span class = "col-lg-4"> {{accuracy}} </span>
+      
+     </div>
+
+     <div *ngIf = "second_crime" class = "form-group row">
+      <span class = "col-lg-2"> Also Can be : </span>
+      <span class = "col-lg-4"> {{second_prediction}} </span>
+      
+     </div>
+
+     <div *ngIf = "second_crime" class = "form-group row">
+      <span class = "col-lg-2"> with Accuracy : </span>
+      <span class = "col-lg-4"> {{second_accuracy}} </span>
+      
+     </div>
+
+
+
+   </div>
